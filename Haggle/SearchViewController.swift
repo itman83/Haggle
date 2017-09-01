@@ -9,8 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import FirebaseAuth // Delete when done manual testing
-import FirebaseDatabase // Delete when done manual testing
 import HMSegmentedControl
 
 
