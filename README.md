@@ -1,7 +1,7 @@
 # Haggle
 
 Buy and sell items from other users via live auctions. 
-This app is still incomplete, and has served as a practical intro to functional reactive programming. 
+This app is still incomplete, but has served as a practical intro to functional reactive programming. 
 
 ![myItems](https://user-images.githubusercontent.com/19160637/29989383-68b11b12-8f27-11e7-8715-8d8924afa2b1.png)
 ![detail](https://user-images.githubusercontent.com/19160637/29989382-68b0d7ec-8f27-11e7-82e9-ab873f5b5e7f.png)
