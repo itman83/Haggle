@@ -10,7 +10,7 @@ Secondly, its worth mentioning that there is not full conformance to the separat
 
 Thirdly, its important to be mindful about image downloads for cells and to consider subclassing the `Operation`class - like has been done in my Itunes-Search app, to manage memory and performance.
 
-There are various obstacles I encountered while using the Firebase Database REST API. Some issues arose from its lack of support for arrays and server-side joins - leading to the implementation of a denormalized structure to reduce client-side joins. Data is then synchronized via helper methods with variadic parameters to represent all desired endpoints that a request must be executed at (more sophisticated way is transactional updates, which im not all that familiar with). The cost is larger data volume by duplicating data- which i believe is quite common in these scenarios with noSQL's.
+There are various obstacles I encountered while using the Firebase Database REST API. Some issues arose from its lack of support for arrays and server-side joins- leading to the implementation of a denormalized structure. Data is synchronized via helper methods with variadic parameters to represent all desired endpoints that a request must be executed at (more sophisticated way is transactional updates, which im not all that familiar with). The cost is larger data volume by duplicating data- which i believe is quite common in these scenarios with noSQL's.
 
 The list does not end here, but I thought it was worth while to state some of the changes that still need to be made. 
 
