@@ -6,7 +6,7 @@ This app is not fully complete yet, and there are some obvious problems associat
 
 For one, error emissions encapsulated by the networking layer have been commented out as I further investigate how they short curcuit subsequent observable sequences. One solution to gain more control over error's is to denote the Ouputs of a given view model as `Driver`s to be certain that they never error out, and that UI updates occur on the main thread. My current solution takes advantage of the `materialize` and `observeOn(scheduler:)` operators.
 
-Secondly, its worth mentioning that there is not full conformance to the separation of concerns principle within the apps MVVM architecture. Some view models are passed in an `Item` model object as a dependency, which lives in the View Controller and is assigned a value upon cell tap events. One solution is to create a higher level coordinator object to subscribe to events to handle navigation all together, rather than initializing the view models from prepareForSegue method. 
+Secondly, its worth mentioning that there is not full conformance to the separation of concerns principle within the apps MVVM architecture. Some view models are passed in an `Item` model object as a dependency, which lives in the View Controller and is assigned a value upon cell tap events. One solution is to create a higher level coordinator object to subscribe to events to handle navigation all together.
 
 Thirdly, its important to be mindful about image downloads for cells and to consider subclassing the `Operation`class - like has been done with my Itunes-Search app, to manage memory. 
 
