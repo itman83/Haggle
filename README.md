@@ -8,7 +8,7 @@ For one, error emissions encapsulated by the networking layer have been commente
 
 Secondly, its worth mentioning that there is not full conformance to the separation of concerns principle within the apps MVVM architecture. Some view models are passed in an `Item` model object as a dependency, which lives in the View Controller and is assigned a value upon cell tap events. One solution is to create a higher level coordinator object to subscribe to events to handle navigation all together.
 
-Thirdly, its important to be mindful about image downloads for cells and to consider subclassing the `Operation`class - like has been done with my Itunes-Search app, to manage memory. 
+Thirdly, its important to be mindful about image downloads for cells and to consider subclassing the `Operation`class - like has been done in my Itunes-Search app, to manage memory and performance.
 
 There are various obstacles I encountered while using the Firebase Database REST API. Some issues arose from its lack of support for arrays and server-side joins - leading to the implementation of a denormalized structure to reduce client-side joins. Data is then synchronized via helper methods with variadic parameters to represent all desired endpoints that a request must be executed at (more sophisticated way is transactional updates, which im not all that familiar with). The cost is larger data volume by duplicating data- which i believe is quite common in these scenarios with noSQL's.
 
