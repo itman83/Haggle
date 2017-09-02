@@ -4,7 +4,7 @@ Buy and sell items from other users via live auctions.
 
 This app is not fully complete yet. 
 
-There are a couple obvious problems associated with this codebase at the moment. I will touch on a couple of them.
+There are a couple obvious problems associated with this codebase at the moment. I will touch on a few of them.
 
 For one, error emissions encapsulated by the networking layer have been commented out as I further investigate how they short curcuit subsequent streams. One solution to gain more control over error's is to denote the Ouputs of a given view model as `Driver`s to be certain that they never error out, and that UI updates occur on the main thread. My current solution takes advantage of the `materialize` and `observeOn(scheduler:)` operators.
 
