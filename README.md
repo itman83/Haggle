@@ -1,6 +1,6 @@
 # Haggle
 
-Buy and sell items from other users via live auctions. 
+Buy and sell items via live auctions. 
 
 This app is not fully complete yet, and there are some obvious problems associated with this codebase that I'll briefly touch on. 
 
