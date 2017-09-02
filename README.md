@@ -10,8 +10,6 @@ Secondly, its worth mentioning that there is not full conformance to the separat
 
 There are various obstacles I encountered while using the Firebase Database REST API. Some issues arose from its lack of support for arrays and server-side joins- leading to the implementation of a denormalized structure. Data is synchronized via helper methods with variadic parameters to represent all desired endpoints that a request must be executed at (more sophisticated way is transactional updates). The cost is larger data volume by duplicating data- which i believe is quite common in these scenarios with noSQL's.
 
-The list does not end here, but I thought it was worth while to state some of the changes that still need to be made. 
-
 ![myItems](https://user-images.githubusercontent.com/19160637/29998230-ae088660-8fda-11e7-9ea2-b3e0c574279c.png)
 ![detail](https://user-images.githubusercontent.com/19160637/29998276-b3463c52-8fdb-11e7-94a5-29e62e5d5c2d.png)
 ![auction](https://user-images.githubusercontent.com/19160637/29998245-03e8880a-8fdb-11e7-8e81-c3c55266c37c.png)
