@@ -4,7 +4,6 @@
 //
 //  Created by Aamahd Walker on 7/16/17.
 //  Copyright © 2017 Aamahd Walker. All rights reserved.
-//   https://console.firebase.google.com/project/haggle-81e4d/settings/serviceaccounts/databasesecrets
 
 import UIKit
 import CoreData
@@ -113,68 +112,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-
-
-
-
-
-
-
-/*
- 
- 
- 
- Bidding App:
- 
- Fonts: 
- 
- Bellefair for titles n shit . 
- 
- 
- search, beneath have scrollign tab bars, for different categories. 
- // when start typing in search, results will show for the current selected category. 
- 
- 
- 
- 
- Anyone can sell or buy.
- 
- Can choose to look at items sold all around the world, or locally, because every item has coordinates.
- 
- 
- bottom tab bar: Discover/Explore, inbox, profile, saved items/ items im watching
- 
- 
- 
- // Multiple hashtag search, like pinterest.
- 
- UI: under search bar:
- - Top tab bar, try to dynamic ui.
- 
- hot current bids: aggregate all current bid sessions, and list top 5 currentBiddersCount
- 
- recently added items
- 
- about to expire items
- 
- Nearby Items
- 
- SO..
- 
- 
- 
- 
- // categories to explore: 
-    - featured : 282w 160h, collectionView height: 170
-    - recently added : 116, 176, 220
-    - Last Day 
-    - For You 
- 
- 
- 
- 
- 
- 
- 
- 
- */
