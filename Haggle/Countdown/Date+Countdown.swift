@@ -1,5 +1,5 @@
 //
-//  Date+Formatter.swift
+//  Date+Countdown.swift
 //  Haggle
 //
 //  Created by Aamahd Walker on 8/6/17.
