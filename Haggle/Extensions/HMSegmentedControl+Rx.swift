@@ -13,9 +13,8 @@ import RxSwift
 import RxCocoa
 
 
-/// Custom Reactive extension for HMSegmentedControl
-/// Get current index of segment. 
 
+// Get current index of segment. 
 // reactive code accessible through rx namespace.
 extension Reactive where Base: HMSegmentedControl {
 
@@ -37,7 +36,6 @@ extension HMSegmentedControl {
     }
     
     
-    /// IN MVVM, these modifications could rightfully go in viewModel, but since I would have to execute this code in multiple viewmodels, leave it here to avoid duplicate code in two separate view models. Only change is the titles.
     func prepareUI(titles: [String]) {
 
         self.sectionTitles = titles
