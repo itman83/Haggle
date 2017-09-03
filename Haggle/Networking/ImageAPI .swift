@@ -75,7 +75,6 @@ class ImageAPI {
         }
         
         let request = URLRequest(url: url)
-        
         return URLSession.shared.rx.data(request: request)
     }
     
