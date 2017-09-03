@@ -20,7 +20,7 @@ extension NetworkResponse {
     
     init(_ response: (r: HTTPURLResponse?, data: Data?, error: Error?), for request: Request) {
         
-        guard response.error == nil else {
+        guard response.r?.statusCode == 200 else {
             self = .error(response.r?.statusCode, response.error)
             return
         }
@@ -30,7 +30,7 @@ extension NetworkResponse {
             return
         }
         
-        if response.r?.statusCode == 200, request.method == .get {
+        if request.method == .get {
             switch request.dataType {
             case .data: self = .data(data)
             case .json:
@@ -40,7 +40,7 @@ extension NetworkResponse {
                         self = .json(data)
                         return
                     } else {
-                        self = .error(nil, NetworkError.custom(message: "JSON Downcast to expected type `[String: AnyObject]` Failure"))
+                        self = .error(nil, NetworkError.custom(message: "Error downcasting JSON to expected type `[String: AnyObject]`"))
                         return
                     }
                 } catch {
@@ -49,7 +49,8 @@ extension NetworkResponse {
                 }
             }
         } else {
-            self = .error(response.r?.statusCode, NetworkError.custom(message: "Unexpected Error"))
+            // If response is success, and no data is expected in return, just set associated value to empty dictionary.
+            self = .json([:])
             return
         }
     }
