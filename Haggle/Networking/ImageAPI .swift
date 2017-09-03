@@ -11,12 +11,23 @@ import FirebaseStorage
 import RxSwift
 
 
+// Describes the type of image being uploaded or downloaded.
+
+enum ImageType {
+    case item
+    case user
+}
+
+
 // Provides an interface for uploading and downloading images from Firebase Storage.
+
 class ImageAPI {
     
     static func uploadImage(data: Data, type: ImageType) -> Observable<String>{
         
-        var storageRef = Storage.storage().reference(forURL: "gs://haggle-81e4d.appspot.com")
+        let url = "gs://haggle-81e4d.appspot.com"
+        
+        var storageRef = Storage.storage().reference(forURL: url )
         
         switch type {
         case .item: storageRef = storageRef.child(Constant.items).child(AuthService.shared.currentUser.id).child(NSUUID().uuidString)
@@ -69,6 +80,7 @@ class ImageAPI {
     }
     
 }
+
 
 
 
