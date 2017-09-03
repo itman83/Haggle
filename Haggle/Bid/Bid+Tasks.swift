@@ -39,7 +39,7 @@ class SaveBidTask: Operation {
                     case .error(_, let error):
                         if let error = error {
                             print("Debugger: error -> \(error.localizedDescription)")
-                            //observer.onError(error)
+                            observer.onError(error)
                         }
                     default: break
                     }
@@ -69,7 +69,6 @@ class FetchBidsTask: Operation {
     
     init(itemId: String) {
         self.itemId = itemId
-        
     }
     
     
@@ -125,7 +124,7 @@ class RemoveBidsTask: Operation {
                     case .error(_, let error):
                         if let error = error {
                             print("Debugger: error -> \(error.localizedDescription)")
-                            //observer.onError(error)
+                            observer.onError(error)
                         }
                     default: observer.onNext()
                     }
@@ -136,17 +135,5 @@ class RemoveBidsTask: Operation {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
