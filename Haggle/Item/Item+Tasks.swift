@@ -10,7 +10,6 @@ import Foundation
 import RxSwift
 
 
-
 // MARK: - Save Item
 
 class SaveItemTask: Operation {
@@ -29,7 +28,7 @@ class SaveItemTask: Operation {
         self.data = data
         self.resource = resource
     }
-
+    
     
     func execute(in dispatcher: Dispatcher) -> Observable<Void> {
         
@@ -40,6 +39,7 @@ class SaveItemTask: Operation {
                     case .error(_, let error):
                         if let error = error {
                             print("Debugger: error -> \(error.localizedDescription)")
+                            observer.onError(error)
                         }
                     default: observer.onNext()
                     }
@@ -47,11 +47,8 @@ class SaveItemTask: Operation {
             
             return Disposables.create()
         }
-        
     }
-    
 }
-
 
 
 
@@ -88,7 +85,7 @@ class UpdateItemTask: Operation {
                     case .error(_, let error):
                         if let error = error {
                             print("Debugger: error -> \(error.localizedDescription)")
-                            //observer.onError(error)
+                            observer.onError(error)
                         }
                     default: observer.onNext()
                     }
@@ -96,9 +93,7 @@ class UpdateItemTask: Operation {
             
             return Disposables.create()
         }
-        
     }
-    
 }
 
 
@@ -109,7 +104,7 @@ class FetchItemsTask: Operation {
     
     typealias Output = [Item]
     
-    private let disposeBag = DisposeBag() 
+    private let disposeBag = DisposeBag()
     private let resource: ItemResource
     
     var request: Request {
@@ -121,15 +116,14 @@ class FetchItemsTask: Operation {
         self.resource = resource
     }
     
-
+    
     func execute(in dispatcher: Dispatcher) -> Observable<[Item]> {
         
         return dispatcher.execute(request: self.request)
             .map { response -> [Item] in
                 switch response {
                 case .json(let data):
-                    print("DEBUGGER: json response :)")
-                    var items = [Item]() 
+                    var items = [Item]()
                     for (_, value) in data {
                         if let value = value as? [String: AnyObject],
                             let item = Item(json: value) {
@@ -139,13 +133,9 @@ class FetchItemsTask: Operation {
                     return items
                     
                 default: return []
-                    
-                    
                 }
         }
     }
-    
- 
     
 }
 
@@ -153,14 +143,12 @@ class FetchItemsTask: Operation {
 
 
 
-
 // MARK: - Remove Item
-
 
 class RemoveItemTask: Operation {
     
     typealias Output = Void
-
+    
     private let disposeBag = DisposeBag()
     private let id: String
     private let userId: String
@@ -173,7 +161,7 @@ class RemoveItemTask: Operation {
     
     init(id: String, userId: String, resource: ItemResource) {
         self.id = id
-        self.userId = userId 
+        self.userId = userId
         self.resource = resource
     }
     
@@ -187,7 +175,7 @@ class RemoveItemTask: Operation {
                     case .error(_, let error):
                         if let error = error {
                             print("Debugger: error -> \(error.localizedDescription)")
-                            //observer.onError(error)
+                            observer.onError(error)
                         }
                     default: observer.onNext()
                     }
@@ -197,10 +185,10 @@ class RemoveItemTask: Operation {
             return Disposables.create()
             
         }
-        
     }
-
 }
+
+
 
 
 
