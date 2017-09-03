@@ -10,7 +10,6 @@ import Foundation
 import RxSwift
 
 
-
 // MARK: - Save User
 
 class SaveUserTask: Operation {
@@ -38,7 +37,7 @@ class SaveUserTask: Operation {
                     case .error(_, let error):
                         if let error = error {
                             print("Debugger: error -> \(error.localizedDescription)")
-                            //observer.onError(error)
+                            observer.onError(error)
                         }
                     default: observer.onNext()
                     }
@@ -65,12 +64,10 @@ class UpdateUserTask: Operation {
         return UserRequest.update(data: data, id: id)
     }
     
-    
     init(data: [String: AnyObject], id: String) {
         self.data = data
         self.id = id
     }
-    
     
     func execute(in dispatcher: Dispatcher) -> Observable<Void> {
         return Observable.create { observer in
@@ -80,7 +77,7 @@ class UpdateUserTask: Operation {
                     case .error(_, let error):
                         if let error = error {
                             print("Debugger: error -> \(error.localizedDescription)")
-                            //observer.onError(error)
+                            observer.onError(error)
                         }
                     default: observer.onNext()
                     }
@@ -122,7 +119,7 @@ class FetchUserTask: Operation {
                     case .error(_, let error):
                         if let error = error {
                             print("Debugger: error -> \(error.localizedDescription)")
-                            //observer.onError(error)
+                            observer.onError(error)
                         }
                         
                     default: break
@@ -162,7 +159,7 @@ class RemoveUserTask: Operation {
                     case .error(_, let error):
                         if let error = error {
                             print("Debugger: error -> \(error.localizedDescription)")
-                            //observer.onError(error)
+                            observer.onError(error)
                         }
                     default: observer.onNext()
                     }
@@ -172,23 +169,4 @@ class RemoveUserTask: Operation {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
