@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 
 
+
 // MARK: - Save Message
 
 class SaveMessageTask: Operation {
@@ -29,7 +30,6 @@ class SaveMessageTask: Operation {
         self.data = data
     }
     
-    
     func execute(in dispatcher: Dispatcher) -> Observable<Void> {
         
         return Observable.create { observer in
@@ -39,10 +39,10 @@ class SaveMessageTask: Operation {
                     case .error(_, let error):
                         if let error = error {
                             print("Debugger: error -> \(error.localizedDescription)")
-                            //observer.onError(error)
+                            observer.onError(error)
                         }
                         
-                    default: break
+                    default: observer.onNext() 
                     }
                     
                 }).addDisposableTo(self.disposeBag)
@@ -70,17 +70,15 @@ class FetchMessagesTask: Operation {
         self.chatroomId = chatroomId
     }
     
-    
     var request: Request {
         return MessageRequest.fetchMessages(chatroomId: chatroomId)
     }
     
     func execute(in dispatcher: Dispatcher) -> Observable<[Message]> {
-        
+   
         return Observable.create { observer in
-            
             dispatcher.execute(request: self.request)
-                .subscribe(onNext: { response in
+                .subscribe(onNext: { response in            
                     switch response  {
                     case .json(let data):
                         var messages: [Message] = []
@@ -91,15 +89,11 @@ class FetchMessagesTask: Operation {
                             }
                         }
                         observer.onNext(messages)
-                        
                     default: observer.onNext([])
-                        
                     }
                 }).addDisposableTo(self.disposeBag)
-            
             return Disposables.create()
         }
     }
-    
-    
 }
+
