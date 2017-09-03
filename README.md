@@ -1,14 +1,13 @@
 # Haggle
 
-Buy and sell items via live auctions. 
+Buy and sell items via live auction. 
 
 This app is not fully complete yet, and there are some obvious problems associated with this codebase that I'll briefly touch on. 
 
-For one, error emissions encapsulated by the networking layer have been commented out as I further investigate how they short curcuit subsequent observable sequences. One solution to gain more control over error's is to denote the Ouputs of a given view model as `Driver`s to be certain that they never error out, and that UI updates occur on the main thread. My current solution takes advantage of the `materialize` and `observeOn(scheduler:)` operators.
+For one, error emissions encapsulated by the networking layer have been commented out as I further investigate how they short curcuit subsequent observable sequences. One solution to gain more control over error's is to denote the Ouputs of a given view model as `Driver`s to be certain that they never error out, and that UI updates occur on the main thread. My current solution takes advantage of the `materialize` and `observeOn(scheduler:)` rx operators.
 
-Secondly, its worth mentioning that there is not full conformance to the separation of concerns principle within the apps MVVM architecture. Some view models are passed in an `Item` model object as a dependency, which lives in the View Controller and is assigned a value upon cell tap events. One solution is to create a higher level coordinator object to subscribe to events to handle navigation all together.
+Secondly, its worth mentioning that some parts of the code violate separation of concerns principle. Some view models are passed in an `Item` model object as a dependency, which lives in the View Controller and is assigned a value upon cell tap events. One solution is to create a higher level coordinator object to subscribe to events to handle navigation all together.
 
-There are various obstacles I encountered while using the Firebase Database REST API. Some issues arose from its lack of support for arrays and server-side joins- leading to the implementation of a denormalized structure. Data is synchronized via helper methods with variadic parameters to represent all desired endpoints that a request must be executed at (more sophisticated way is transactional updates). The cost is larger data volume by duplicating data- which i believe is quite common in these scenarios with noSQL's.
 
 ![myItems](https://user-images.githubusercontent.com/19160637/29998230-ae088660-8fda-11e7-9ea2-b3e0c574279c.png)
 ![detail](https://user-images.githubusercontent.com/19160637/29998276-b3463c52-8fdb-11e7-94a5-29e62e5d5c2d.png)
