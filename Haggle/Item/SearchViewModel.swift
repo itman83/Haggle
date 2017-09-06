@@ -61,8 +61,6 @@ class SearchViewModel {
     
     
     
-    // MARK: - Helper Methods
-    
     private func rx_segmentedItems(for category: ItemCategory, items: [Item]) -> Observable<[Item]> {
         switch category {
         case .forYou: return rx_forYouItems(items: items)
