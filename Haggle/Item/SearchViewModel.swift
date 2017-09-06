@@ -12,19 +12,15 @@ import RxSwift
 
 class SearchViewModel {
     
-    // MARK: - Dependencies
     private let dispatcher: Dispatcher
-    
-    // MARK: - Outlets
+
     var collectionItems = Observable<[Item]>.of([])
     var error: Observable<Error>?
     
     
-    // MARK: - Init
     init(dispatcher: Dispatcher, segment: Observable<Int>, searchText: Observable<String?>) {
         self.dispatcher = dispatcher
         fetchItems(for: segment, containing: searchText)
-        
     }
 
     
