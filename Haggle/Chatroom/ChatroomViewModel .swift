@@ -79,19 +79,6 @@ class ChatroomViewModel {
     }
     
     
-    private func updateChatroom(message: Message) {
-        
-        let updatedChatroom = [Constant.lastMessage: message.text, Constant.timestamp: message.timestamp] as [String: AnyObject]
-        
-        SaveChatroomTask(data: updatedChatroom).execute(in: dispatcher)
-            .materialize()
-            .flatMap({ Observable.from(optional: $0.error) })
-            .subscribe(onNext: { [weak self] (error) in
-                self?.error = Observable.of(error)
-            }).addDisposableTo(disposeBag)
-    }
-    
-    
     func removeChatroom() {
         
         RemoveChatroomTask(id: chatroom.id).execute(in: dispatcher)
