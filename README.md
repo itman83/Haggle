@@ -1,11 +1,14 @@
 # Haggle
 
-Buy and sell items via live auction. 
+Buy and sell items via real-time bidding.  
 
-![myItems](https://user-images.githubusercontent.com/19160637/29998230-ae088660-8fda-11e7-9ea2-b3e0c574279c.png)
-![detail](https://user-images.githubusercontent.com/19160637/29998276-b3463c52-8fdb-11e7-94a5-29e62e5d5c2d.png)
-![auction](https://user-images.githubusercontent.com/19160637/29998245-03e8880a-8fdb-11e7-8e81-c3c55266c37c.png)
+![img_0133_iphone6_silver_side2](https://user-images.githubusercontent.com/19160637/33688490-68adb94a-da90-11e7-811a-b73c99c8ff73.png)
+
+![img_0135_iphone6_silver_portrait](https://user-images.githubusercontent.com/19160637/33688530-8cd3f92e-da90-11e7-879c-bb70e0b1ad1c.png)
+
+![img_0134_iphone6_silver_portrait](https://user-images.githubusercontent.com/19160637/33688510-7ce74d18-da90-11e7-90b6-fe4d81bc27dc.png)
+
 ![chatroom](https://user-images.githubusercontent.com/19160637/29998209-173d4c02-8fda-11e7-946f-a33473a2dd92.png)
-![addItem](https://user-images.githubusercontent.com/19160637/29998257-65e2370e-8fdb-11e7-91a0-c876f76a92b3.png)
+
 
 
