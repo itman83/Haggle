@@ -1,6 +1,6 @@
 # Haggle
 
-Buy and sell items via real-time bidding. An experiment with RxSwift.  
+Buy and sell items via real-time bidding.
 
 ![img_0133_iphone6_silver_side2](https://user-images.githubusercontent.com/19160637/33688490-68adb94a-da90-11e7-811a-b73c99c8ff73.png)
 
